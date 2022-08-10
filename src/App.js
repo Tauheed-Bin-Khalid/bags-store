@@ -1,13 +1,18 @@
+// import logo from "./logo.svg";
+import "./App.css";
+import { Container, Typography, Box, Stack, Grid, Button } from "@mui/material";
+import Appbar from "./components/appbar";
+import { ThemeProvider } from "@mui/system";
+import theme from "./styles/theme";
+import Banner from "./components/banner";
+import Products from "./components/products";
+import { UIProvider } from "./context/ui";
 
-import { Button } from '@mui/material';
-import { Container, ThemeProvider } from '@mui/system';
-import { useEffect } from 'react';
-import Appbar from './components/appbar';
-import theme from './styles/theme';
-import Banner from './components/banner';
-import Products from './components/products';
-
-import Promotions from './components/promotions';
+import Promotions from "./components/promotions";
+// import SearchBox from "./components/search";
+import { useEffect } from "react";
+import Footer from "./components/footer";
+import AppDrawer from "./components/drawer";
 
 
 function App() {
@@ -21,18 +26,24 @@ function App() {
         sx={{
           background: '#fff'
         }} >
+          <UIProvider>
+            
           <Appbar/>
           <Banner/>
           <Promotions/>
+          <Box display="flex" justifyContent="center" sx={{ p: 4 }}>
+              <Typography variant="h4">Our Products</Typography>
+            </Box>
           <Products/>
+          <Footer/>
+          <AppDrawer/>
 
           {/* 
-          title
-          
           footer
           searchbx
           appdawer 
           */}
+          </UIProvider>
 
       </Container>
 

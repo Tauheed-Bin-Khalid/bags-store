@@ -1,4 +1,5 @@
 import { createTheme } from "@mui/material/styles";
+import { darken, lighten } from "polished";
 
 export const Colors = {
     primary: "#5f2c3e",
@@ -33,6 +34,53 @@ const theme = createTheme({
         },
         secondary: {
             main: Colors.secondary
+        }
+    },
+
+    components: {
+        MuiButton: {
+            defaultProps: {
+                disableRipple: false,
+                disableElevation: true
+            }
+        },
+        MuiDrawer: {
+            styleOverrides: {
+                paper: {
+                    width: 250,
+                    background: Colors.primary,
+                    color: Colors.secondary,
+                    borderRadius: '0px 100px 0px 0px',
+                    border: `4px solid ${Colors.secondary}`,
+                }
+            }
+        },
+        MuiDivider: {
+            styleOverrides: {
+                root: {
+                    borderColor: lighten(0.2,Colors.primary)
+                }
+            }
+        },
+        MyShopButton: {
+            styleOverrides: {
+                root: {
+                    color: Colors.white
+                },
+                primary: {
+                    background: Colors.primary,
+                    "&:hover": {
+                        background: lighten(0.05,Colors.primary)
+                    }
+                },
+                secondary: {
+                    background: Colors.secondary,
+                    "&:hover": {
+                        background: lighten(0.05,Colors.secondary)
+                    }
+
+                }
+            }
         }
     }
     
